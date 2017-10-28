@@ -4,8 +4,6 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import boundActiionCreator from '../boundActionCreator';
 import * as types from '../../application/types';
 
-import Dimensions from 'react-dimensions';
-
 class Root extends React.Component {
   constructor(props) {
     super(props);
