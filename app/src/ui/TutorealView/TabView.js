@@ -8,7 +8,7 @@ class TutorealList extends React.Component {
   render() {
     const tips = this.props.children.map((x, i) =>
       <TouchableOpacity style={[styles.tips, this.props.state.application.tab_index === i ? styles.active_tips : null]} key={i} onPress={
-        () => boundActionCreator(types.SET_TAB_INDEX, {tab_index: i})
+        () => boundActionCreator(types.SET_ACTIVE_SKILL_INDEX, {index: i})
       }>
         <Text style={[styles.tips__text, this.props.state.application.tab_index === i ? styles.tips__active_text : null]}>{x.props.tab_name}</Text>
       </TouchableOpacity>);

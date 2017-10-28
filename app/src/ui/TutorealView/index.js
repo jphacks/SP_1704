@@ -9,7 +9,7 @@ import Skill from './Skill';
 class TutorealView extends React.Component {
   render() {
     const state = this.props.state;
-    const skills = this.props.state.application.tutoreals[this.props.state.application.active_titoreal_index].skill_set.map(x => <Skill tab_name={`${x.name}`} skill_index={x.name} key={x.id} />);
+    const skills = this.props.state.application.tutoreals[this.props.state.application.active_titoreal_index].skill_set.map(x => <Skill tab_name={`${x.name}`} skill_index={x.name} key={x.id} task_set={x.task_set} />);
 
     return (
       <View style={styles.root}>

@@ -3,11 +3,6 @@ import * as types from './types';
 import deepAssign from 'deep-assign';
 
 const reducers = {
-  [types.SET_TAB_INDEX](old_state, action){
-    let state = deepAssign({}, old_state);
-    state.tab_index = action.tab_index;
-    return state;
-  },
   [types.SET_VIEW_STATE](old_state, action){
     let state = deepAssign({}, old_state);
     state.view_state = action.view_state;
@@ -21,6 +16,16 @@ const reducers = {
   [types.SET_ACTIVE_TUTOREAL_INDEX](old_state, action){
     let state = deepAssign({}, old_state);
     state.active_titoreal_index = action.index;
+    return state;
+  },
+  [types.SET_ACTIVE_SKILL_INDEX](old_state, action){
+    let state = deepAssign({}, old_state);
+    state.active_skill_index = action.index;
+    return state;
+  },
+  [types.SET_ACTIVE_TASK_INDEX](old_state, action){
+    let state = deepAssign({}, old_state);
+    state.active_task_index = action.index;
     return state;
   },
 };
