@@ -47,7 +47,7 @@ class TaskSerializer(serializers.ModelSerializer):
 
 
 class SkillSerializer(serializers.ModelSerializer):
-    task_set = TaskSerializer(many=True)
+    task_set = TaskSerializer(many=True, read_only=True)
 
     class Meta:
         model = Skill
@@ -55,7 +55,7 @@ class SkillSerializer(serializers.ModelSerializer):
 
 
 class TutorialSerializer(serializers.ModelSerializer):
-    skill_set = SkillSerializer(many=True)
+    skill_set = SkillSerializer(many=True, read_only=True)
 
     class Meta:
         model = Tutorial
@@ -63,7 +63,7 @@ class TutorialSerializer(serializers.ModelSerializer):
 
 
 class DetailTutorialSerializer(serializers.ModelSerializer):
-    skill_set = SkillSerializer(many=True)
+    skill_set = SkillSerializer(many=True, read_only=True)
 
     class Meta:
         model = Tutorial
