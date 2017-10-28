@@ -27,6 +27,12 @@ class Beacon(models.Model):
     major = models.PositiveIntegerField()
     minor = models.PositiveIntegerField()
 
+    class Meta:
+        unique_together = ('major', 'minor')
+
+    def __str__(self):
+        return f'major: {self.major}\tminor: {self.minor}'
+
 
 class BeaconSerializer(serializers.ModelSerializer):
     class Meta:
@@ -45,13 +51,16 @@ router.register(r'beacons', BeaconViewSet)
 class Tutorial(models.Model):
     name = models.CharField('チュートリアルの名前', max_length=64)
     image_path = models.ImageField('サムネイル')
-    beacon = models.OneToOneField(Beacon)
+    beacon = models.OneToOneField(Beacon,  null=False, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 
 class TutorialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tutorial
-        fields = ('id', 'name', 'image_path')
+        fields = ('id', 'name', 'image_path', 'beacon')
 
 
 class TutorialViewSet(viewsets.ModelViewSet):
@@ -75,6 +84,9 @@ class Skill(models.Model):
     name = models.CharField('スキル名', max_length=64)
     tutorial = models.ForeignKey(Tutorial)
 
+    def __str__(self):
+        return self.name
+
 
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
@@ -95,6 +107,9 @@ class Task(models.Model):
     skill = models.ForeignKey(Skill)
     image_path = models.ImageField()
     description = models.TextField('詳細')
+
+    def __str__(self):
+        return self.name
 
 
 class TaskSerializer(serializers.ModelSerializer):
