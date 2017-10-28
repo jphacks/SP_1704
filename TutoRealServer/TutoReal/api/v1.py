@@ -2,6 +2,7 @@ from django.conf.urls import url, include
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 from django.db import models
 from django.http import Http404
 from rest_framework.permissions import AllowAny
@@ -67,6 +68,8 @@ class TutorialViewSet(viewsets.ModelViewSet):
     permission_classes = (AllowAny, )
     queryset = Tutorial.objects.all()
     serializer_class = TutorialSerializer
+    filter_backends = (DjangoFilterBackend, )
+    filter_fields = ('beacon', )
 
     def retrieve(self, request, *args, **kwargs):
         major = request.GET['major']
@@ -98,6 +101,8 @@ class SkillViewSet(viewsets.ModelViewSet):
     permission_classes = (AllowAny, )
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
+    filter_backends = (DjangoFilterBackend, )
+    filter_fields = ('tutorial', )
 
 router.register(r'skills', SkillViewSet)
 
@@ -122,6 +127,8 @@ class TaskViewSet(viewsets.ModelViewSet):
     permission_classes = (AllowAny, )
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+    filter_backends = (DjangoFilterBackend, )
+    filter_fields = ('skill', )
 
 router.register(r'tasks', TaskViewSet)
 
