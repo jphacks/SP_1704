@@ -34,14 +34,16 @@ export default connect(state => ({state}))(Root);
 const styles = StyleSheet.create({
   taskView: {
     alignItems: 'center',
+    backgroundColor: "rgba(255, 255, 255, 0.7)",
   },
   modal: {
-    top: 50,
+    top: -200,
     width: 300,
     height: 400,
     borderColor: '#999',
     borderWidth: 1,
     borderRadius: 3,
     alignItems: 'center',
+    backgroundColor: "#fff",
   },
 });

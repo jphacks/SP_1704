@@ -17,16 +17,16 @@ import TaskView from './TaskView/index';
 class Root extends React.Component {
   render() {
     const state = this.props.state;
-    
-    const views = {
-      "tutoreal_list": <TutorealList />,
-      "tutoreal_view": <TutorealView />,
-      "task_view": <TaskView />,
-    };
-    
+
+    const views = [
+      [["tutoreal_list"], <TutorealList key="TutorealList" />],
+      [["tutoreal_view", "task_view"], <TutorealView key="TutorealView" />],
+      [["task_view"], <TaskView key="TaskView" />]
+    ];
+
     return (
       <View style={styles.root}>
-        {views[this.props.state.application.view_state]}
+        {views.filter(x => x[0].includes(this.props.state.application.view_state)).map(x => x[1])}
       </View>
     );
   }
