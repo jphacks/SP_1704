@@ -12,8 +12,9 @@ class Root extends React.Component {
     const state = this.props.state;
     return (
       <View>
-        <BeaconEmitter />
-        <Text>{state.application.count}</Text>
+        <BeaconEmitter style={styles.ibeacon_emitter} />
+        <Text>state</Text>
+        <Text>{JSON.stringify(state, null, "  ")}</Text>
         <Button title="count up" onPress={() => boundActiionCreator(types.INCREMENT)} />
       </View>
     );
