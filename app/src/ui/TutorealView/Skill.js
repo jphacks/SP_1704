@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { StyleSheet, Text, View } from 'react-native';
 import boundActiionCreator from '../boundActionCreator';
 import * as types from '../../application/types';
-import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 class Skill extends React.Component {
   render() {

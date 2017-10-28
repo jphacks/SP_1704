@@ -1,6 +1,6 @@
 const initial_state = {
   tab_index: 0,
-  view_state: "task_view",
+  view_state: "tutoreal_list",
 };
 
 export default initial_state;
