@@ -51,13 +51,13 @@ class Tutorial(models.Model):
 class TutorialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tutorial
-        fields = ('id', 'name', 'img_path')
+        fields = ('id', 'name', 'image_path')
 
 
 class TutorialViewSet(viewsets.ModelViewSet):
     permission_classes = (AllowAny, )
     queryset = Tutorial.objects.all()
-    serializer_class = BeaconSerializer
+    serializer_class = TutorialSerializer
 
     def retrieve(self, request, *args, **kwargs):
         major = request.GET['major']
@@ -69,6 +69,46 @@ class TutorialViewSet(viewsets.ModelViewSet):
         return Response(TutorialSerializer(the_tutorial).data)
 
 router.register(r'tutorials', TutorialViewSet)
+
+
+class Skill(models.Model):
+    name = models.CharField('スキル名', max_length=64)
+    tutorial = models.ForeignKey(Tutorial)
+
+
+class SkillSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Skill
+        fields = ('id', 'name', 'tutorial')
+
+
+class SkillViewSet(viewsets.ModelViewSet):
+    permission_classes = (AllowAny, )
+    queryset = Skill.objects.all()
+    serializer_class = SkillSerializer
+
+router.register(r'skills', SkillViewSet)
+
+
+class Task(models.Model):
+    name = models.CharField('タスク名', max_length=64)
+    skill = models.ForeignKey(Skill)
+    image_path = models.ImageField()
+    description = models.TextField('詳細')
+
+
+class TaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = ('id', 'name', 'skill', 'image_path', 'description')
+
+
+class TaskViewSet(viewsets.ModelViewSet):
+    permission_classes = (AllowAny, )
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+
+router.register(r'tasks', TaskViewSet)
 
 
 # Wire up our API using automatic URL routing.
