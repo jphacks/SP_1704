@@ -4,8 +4,7 @@ import { StyleSheet, Text, View, Button, DeviceEventEmitter } from 'react-native
 import boundActiionCreator from './boundActionCreator';
 import * as types from '../application/types';
 import BeaconEmitter from '../infrastructure/BeaconEmitter';
-
-console.log("!!", BeaconEmitter);
+import TutorealList from './TutorealList/index';
 
 class Root extends React.Component {
   render() {
@@ -13,9 +12,9 @@ class Root extends React.Component {
     return (
       <View>
         <BeaconEmitter style={styles.ibeacon_emitter} />
+        <TutorealList />
         <Text>state</Text>
         <Text>{JSON.stringify(state, null, "  ")}</Text>
-        <Button title="count up" onPress={() => boundActiionCreator(types.INCREMENT)} />
       </View>
     );
   }
