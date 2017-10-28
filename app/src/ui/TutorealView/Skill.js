@@ -9,7 +9,7 @@ class Skill extends React.Component {
   render() {
     const state = this.props.state;
     return (
-      <View>
+      <View style={styles.root}>
         <Text>Skill {this.props.skill_index}</Text>
       </View>
     );
@@ -18,4 +18,7 @@ class Skill extends React.Component {
 export default connect(state => ({state}))(Skill);
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  }
 });

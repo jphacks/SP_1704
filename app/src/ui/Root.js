@@ -23,8 +23,6 @@ class Root extends React.Component {
       <View style={styles.root}>
         {views[this.props.state.application.view_state]}
         <BeaconEmitter style={styles.ibeacon_emitter} />
-        <Text style={styles.state}>state</Text>
-        <Text>{JSON.stringify(state, null, "  ")}</Text>
       </View>
     );
   }
@@ -33,6 +31,7 @@ export default connect(state => ({state}))(Root);
 
 const styles = StyleSheet.create({
   root: {
+    flex: 1,
     paddingTop: 20,
   },
   state: {
