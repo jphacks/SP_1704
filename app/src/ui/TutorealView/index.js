@@ -9,11 +9,11 @@ import Skill from './Skill';
 class TutorealView extends React.Component {
   render() {
     const state = this.props.state;
-    const skills = Array.from({length: 5}, (x, i) => i).map(x => <Skill tab_name={`skill ${x}`} skill_index={x} key={x} />);
-    
+    const skills = this.props.state.application.tutoreals[this.props.state.application.active_titoreal_index].skill_set.map(x => <Skill tab_name={`${x.name}`} skill_index={x.name} key={x.id} />);
+
     return (
       <View style={styles.root}>
-        <TouchableOpacity style={styles.back_button}>
+        <TouchableOpacity style={styles.back_button} onPress={() => boundActionCreator(types.SET_VIEW_STATE, {view_state: "tutoreal_list"})}>
           <Text style={styles.back_button__text}>＜戻る</Text>
         </TouchableOpacity>
         <TabView>

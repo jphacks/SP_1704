@@ -15,11 +15,11 @@ const fetch_from_beacons = beacons => {
 };
 
 const tutorealFetcher = store => next => action => {
-  console.log("@middleware", store.getState());
   const old_beacons = store.getState().infrastructure.beacons;
   next(action);
   const new_beacons = store.getState().infrastructure.beacons;
   if(old_beacons.length !== new_beacons.length)fetch_from_beacons(new_beacons.filter(x => !old_beacons.includes(x)));
+  console.log("@middleware", store.getState());
 }
 
 export default tutorealFetcher;

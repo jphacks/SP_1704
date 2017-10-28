@@ -21,9 +21,12 @@ class TutorealList extends React.Component {
     return (
       <ScrollView style={styles.tutorealListContainer}>
         <View style={styles.tutorealList}>
-          {this.props.state.application.tutoreals.map((tutoreal) => {
+          {this.props.state.application.tutoreals.map((tutoreal, i) => {
             return (
-              <TouchableOpacity key={tutoreal.name} style={styles.card} onPress={() => boundActionCreator(types.SET_VIEW_STATE, {view_state: "tutoreal_view"})}>
+              <TouchableOpacity key={tutoreal.name} style={styles.card} onPress={() => {
+                boundActionCreator(types.SET_VIEW_STATE, {view_state: "tutoreal_view"});
+                boundActionCreator(types.SET_ACTIVE_TUTOREAL_INDEX, {index: i});
+              }}>
                 <Text>{tutoreal.name}</Text>
                 <Image
                   style={{width: 100, height: 100, resizeMode: 'cover'}}

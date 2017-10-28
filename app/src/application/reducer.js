@@ -18,6 +18,11 @@ const reducers = {
     state.tutoreals.push(action.tutoreal);
     return state;
   },
+  [types.SET_ACTIVE_TUTOREAL_INDEX](old_state, action){
+    let state = deepAssign({}, old_state);
+    state.active_titoreal_index = action.index;
+    return state;
+  },
 };
 
 const reducer = (state = initial_state, action) => {
