@@ -62,6 +62,14 @@ class TutorialSerializer(serializers.ModelSerializer):
         fields = ('id', 'major', 'minor', 'name', 'image_path', 'skill_set')
 
 
+class DetailTutorialSerializer(serializers.ModelSerializer):
+    skill_set = SkillSerializer(many=True)
+
+    class Meta:
+        model = Tutorial
+        fields = ('id', 'major', 'minor', 'name', 'image_path', 'skill_set')
+
+
 class TaskViewSet(viewsets.ModelViewSet):
     permission_classes = (AllowAny, )
     queryset = Task.objects.all()
@@ -88,6 +96,16 @@ class TutorialViewSet(viewsets.ModelViewSet):
     serializer_class = TutorialSerializer
     filter_backends = (DjangoFilterBackend, )
 
+
+router.register(r'tutorials', TutorialViewSet)
+
+
+class DetailTutorialViewSet(viewsets.ModelViewSet):
+    permission_classes = (AllowAny, )
+    queryset = Tutorial.objects.all()
+    serializer_class = TutorialSerializer
+    filter_backends = (DjangoFilterBackend, )
+
     def list(self, request, *args, **kwargs):
         major = request.GET['major']
         minor = request.GET['minor']
@@ -97,8 +115,7 @@ class TutorialViewSet(viewsets.ModelViewSet):
             raise Http404
         return Response(TutorialSerializer(the_tutorial).data)
 
-
-router.register(r'tutorials', TutorialViewSet)
+router.register(r'detailed_tutorial', DetailTutorialViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
