@@ -3,7 +3,6 @@ import * as types from './types';
 
 const reducers = {
   [types.INCREMENT](state, action){
-    console.log("@reducer");
     let new_state = {...state};
     new_state.count++;
     return new_state;

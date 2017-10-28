@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Button, DeviceEventEmitter } from 'react-native';
 import boundActiionCreator from './boundActionCreator';
 import * as types from '../application/types';
+import BeaconEmitter from '../infrastructure/BeaconEmitter';
+
+console.log("!!", BeaconEmitter);
 
 class Root extends React.Component {
   render() {
     const state = this.props.state;
     return (
-      <View style={styles.container}>
+      <View>
+        <BeaconEmitter />
         <Text>{state.application.count}</Text>
         <Button title="count up" onPress={() => boundActiionCreator(types.INCREMENT)} />
       </View>
@@ -18,10 +22,7 @@ class Root extends React.Component {
 export default connect(state => ({state}))(Root);
 
 const styles = StyleSheet.create({
-  container: {
+  ibeacon_emitter: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  }
 });
