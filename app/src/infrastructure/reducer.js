@@ -18,6 +18,11 @@ const reducers = {
     for(let beacon of action.beacons)state = reducers[types.SET_BEACON](state, {beacon});
     return state;
   },
+  [types.ADD_TUTOREAL](old_state, action){
+    let state = deepAssign({}, old_state);
+    state.tutoreals = [...state.tutoreals, action.tutoreal];
+    return state;
+  },
 };
 
 const reducer = (state = initial_state, action) => {

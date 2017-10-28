@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View } from 'react-native';
-import boundActiionCreator from '../boundActionCreator';
+import boundActionCreator from '../boundActionCreator';
 import * as types from '../../application/types';
 
 class Skill extends React.Component {

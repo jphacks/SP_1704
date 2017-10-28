@@ -1,9 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Button, DeviceEventEmitter } from 'react-native';
-import boundActiionCreator from './boundActionCreator';
+import boundActionCreator from './boundActionCreator';
 import * as types from '../application/types';
 import BeaconEmitter from '../infrastructure/BeaconEmitter';
+import * as infrastructure_types from '../infrastructure/types';
+boundActionCreator(infrastructure_types.SET_BEACONS, {beacons: [{
+  major: 1,
+  minor: 1,
+}]});
 
 import TutorealList from './TutorealList/index';
 import TutorealView from './TutorealView/index';

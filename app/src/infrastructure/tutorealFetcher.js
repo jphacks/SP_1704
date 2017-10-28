@@ -1,12 +1,25 @@
-import Beacons                from 'react-native-beacons-manager';
-import BluetoothState         from 'react-native-bluetooth-state';
 import boundActionCreator from '../ui/boundActionCreator';
-import * as infrastructure_types from './types';
+import * as types from '../application/types';
+
+const fetch_tutorials = beacon => {
+  fetch(`http://104.154.184.10/api/v1/tutorials/?major=${beacon.major}&minor=${beacon.minor}`).then(res => res.json()).then(tutoreals => tutoreals[0]).then(tutoreal => {
+    tutoreal.beacon = beacon;
+    boundActionCreator(types.ADD_TUTOREAL, {tutoreal});
+  });
+};
+
+const fetch_from_beacons = beacons => {
+  for(let beacon of beacons){
+    fetch_tutorials(beacon);
+  }
+};
 
 const tutorealFetcher = store => next => action => {
-  console.log("start", store.getState().application.beacons.length);
+  console.log("@middleware", store.getState());
+  const old_beacons = store.getState().infrastructure.beacons;
   next(action);
-  console.log("end", store.getState().application.beacons.length);
+  const new_beacons = store.getState().infrastructure.beacons;
+  if(old_beacons.length !== new_beacons.length)fetch_from_beacons(new_beacons.filter(x => !old_beacons.includes(x)));
 }
 
-export default BeaconEmitter;
+export default tutorealFetcher;

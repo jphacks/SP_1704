@@ -13,6 +13,11 @@ const reducers = {
     state.view_state = action.view_state;
     return state;
   },
+  [types.ADD_TUTOREAL](old_state, action){
+    let state = deepAssign({}, old_state);
+    state.tutoreals.push(action.tutoreal);
+    return state;
+  },
 };
 
 const reducer = (state = initial_state, action) => {

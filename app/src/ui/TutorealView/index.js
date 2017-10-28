@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import boundActiionCreator from '../boundActionCreator';
+import boundActionCreator from '../boundActionCreator';
 import * as types from '../../application/types';
 import TabView from './TabView';
 import Skill from './Skill';
