@@ -14,7 +14,7 @@
  import Beacons        from 'react-native-beacons-manager';
 
 
- class TutoReal extends Component {
+ class reactNativeBeaconExample extends Component {
    constructor(props) {
      super(props);
      // Create our dataSource which will be displayed in the ListView
@@ -136,6 +136,6 @@
  });
 
  AppRegistry.registerComponent(
-   'TutoReal',
-   () => TutoReal
+   'reactNativeBeaconExample',
+   () => reactNativeBeaconExample
  );
