@@ -3,9 +3,14 @@ import * as types from './types';
 import deepAssign from 'deep-assign';
 
 const reducers = {
-  [types.INCREMENT](old_state, action){
+  [types.SET_TAB_INDEX](old_state, action){
     let state = deepAssign({}, old_state);
-    state.count++;
+    state.tab_index = action.tab_index;
+    return state;
+  },
+  [types.SET_VIEW_STATE](old_state, action){
+    let state = deepAssign({}, old_state);
+    state.view_state = action.view_state;
     return state;
   },
 };

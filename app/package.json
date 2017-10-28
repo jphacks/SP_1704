@@ -20,7 +20,7 @@
     "iBeacon"
   ],
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "react-native run-ios",
     "test": "jest"
   },
   "dependencies": {
@@ -40,6 +40,7 @@
     "jest": "19.0.0",
     "npm-run-all": "^4.1.1",
     "react-native-router-flux": "^4.0.0-beta.22",
+    "react-native-scrollable-tab-view": "^0.7.3",
     "react-redux": "^5.0.6",
     "react-test-renderer": "~15.4.0",
     "redux": "^3.7.2"

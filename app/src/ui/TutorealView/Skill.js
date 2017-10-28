@@ -1,24 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import boundActiionCreator from '../boundActionCreator';
 import * as types from '../../application/types';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
 
-import TaskView from '../TaskView/index';
-import TutorealView from '../TutorealView/index';
-
-
-class TutorealList extends React.Component {
+class Skill extends React.Component {
   render() {
     const state = this.props.state;
     return (
       <View>
-        <Text>tutoreal list</Text>
+        <Text>Skill {this.props.skill_index}</Text>
       </View>
     );
   }
 }
-export default connect(state => ({state}))(TutorealList);
+export default connect(state => ({state}))(Skill);
 
 const styles = StyleSheet.create({
 });
