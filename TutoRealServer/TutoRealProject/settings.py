@@ -62,6 +62,10 @@ REST_FRAMEWORK = {
 
 ROOT_URLCONF = 'TutoRealProject.urls'
 
+BASE_PATH = os.path.abspath(os.path.split(__file__)[0])
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
