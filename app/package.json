@@ -1,29 +1,45 @@
 {
-  "name": "app",
-  "version": "0.1.0",
-  "private": true,
-  "devDependencies": {
-    "jest-expo": "^22.0.0",
-    "react-native-scripts": "1.6.0",
-    "react-redux": "^5.0.6",
-    "react-test-renderer": "16.0.0-beta.5",
-    "redux": "^3.7.2"
-  },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
-  "scripts": {
-    "reset:watchman": "watchman watch-del-all",
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
-  },
-  "jest": {
-    "preset": "jest-expo"
-  },
-  "dependencies": {
-    "expo": "^22.0.0",
-    "react": "16.0.0-beta.5",
-    "react-native": "^0.49.5"
-  }
+ "name": "TutoReal",
+ "version": "2.0.0",
+ "author": "Erwan DATIN (MacKentoch)",
+ "license": "MIT",
+ "description": "React Native iBeacon Example",
+ "keywords": [
+  "react-native",
+  "react native",
+  "React Native",
+  "React",
+  "native",
+  "Native",
+  "react",
+  "starter",
+  "es6",
+  "ES6",
+  "ES2015",
+  "beacon",
+  "iBeacon"
+ ],
+ "scripts": {
+  "start": "node node_modules/react-native/local-cli/cli.js start",
+  "test": "jest"
+ },
+ "dependencies": {
+  "react": "~15.4.0",
+  "react-native": "0.41.2",
+  "react-native-beacons-manager": "^1.0.1",
+  "react-native-bluetooth-state": "^2.0.0"
+ },
+ "devDependencies": {
+  "babel-eslint": "^7.1.1",
+  "babel-jest": "19.0.0",
+  "babel-preset-react-native": "1.9.1",
+  "eslint": "^3.16.0",
+  "eslint-plugin-react": "^6.10.0",
+  "eslint-plugin-react-native": "^2.2.1",
+  "jest": "19.0.0",
+  "react-test-renderer": "~15.4.0"
+ },
+ "jest": {
+  "preset": "react-native"
+ }
 }
