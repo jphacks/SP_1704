@@ -22,7 +22,6 @@ class Root extends React.Component {
     return (
       <View style={styles.root}>
         {views[this.props.state.application.view_state]}
-        <BeaconEmitter style={styles.ibeacon_emitter} />
       </View>
     );
   }

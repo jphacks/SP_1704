@@ -32,12 +32,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modal: {
-    top: -30,
+    top: 50,
     width: 300,
     height: 400,
-    borderColor: 'black',
-    borderWidth: 5,
-    borderRadius: 10,
+    borderColor: '#999',
+    borderWidth: 1,
+    borderRadius: 3,
     alignItems: 'center',
   },
 });
