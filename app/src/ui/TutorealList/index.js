@@ -27,11 +27,11 @@ class TutorealList extends React.Component {
                 boundActionCreator(types.SET_VIEW_STATE, {view_state: "tutoreal_view"});
                 boundActionCreator(types.SET_ACTIVE_TUTOREAL_INDEX, {index: i});
               }}>
-                <Text>{tutoreal.name}</Text>
                 <Image
-                  style={{width: 100, height: 100, resizeMode: 'cover'}}
+                  style={styles.image}
                   source={{uri: tutoreal.image_path}}
                 />
+                <Text style={styles.name}>{tutoreal.name}</Text>
               </TouchableOpacity>
             );
           })}
@@ -42,6 +42,8 @@ class TutorealList extends React.Component {
 }
 export default connect(state => ({state}))(TutorealList);
 
+import Dimensions from 'Dimensions';
+const rect = Dimensions.get("window");
 const styles = StyleSheet.create({
   tutorealListContainer: {
     flex: 1,
@@ -53,8 +55,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
+  name: {
+    padding: 10,
+    textAlign: "center",
+    color: "#412A1B",
+    backgroundColor: "#EDEEA5",
+  },
+  image: {
+    width: rect.width / 3.2,
+    height: rect.width / 3.4, 
+    resizeMode: 'cover'
+  },
   card: {
-    width: 100,
-    height: 100,
+    margin: 10,
+    width: rect.width / 3.2,
+    height: rect.height / 3.4,
   },
 });

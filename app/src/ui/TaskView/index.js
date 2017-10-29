@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import boundActionCreator from '../boundActionCreator';
 import * as types from '../../application/types';
 
@@ -16,34 +16,62 @@ class Root extends React.Component {
 
     if(this.state.isTaskView) {
       return (
-        <View style={styles.taskView}>
+        <TouchableOpacity style={styles.taskView} onPress={() => boundActionCreator(types.SET_VIEW_STATE, {view_state: "tutoreal_view"})}>
           <View style={styles.modal}>
+            <View style={styles.header}>
+              <Text style={styles.text}>{active_task.name}</Text>
+              <Text style={styles.close_button}>×</Text>
+            </View>
             <Image
-              style={{width: 100, height: 100, resizeMode: 'cover'}}
+              style={styles.image}
               source={{uri: active_task.image_path}}
             />
-            <Text>{active_task.name}</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       );
     }
   }
 }
 export default connect(state => ({state}))(Root);
 
+import Dimensions from 'Dimensions';
+const rect = Dimensions.get("window");
 const styles = StyleSheet.create({
   taskView: {
+    height: rect.height,
+    bottom: 0,
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: "rgba(255, 255, 255, 0.7)",
+    backgroundColor: "rgba(255, 255, 255, 0.3)",
+  },
+  image: {
+    width: 300,
+    height: 150,
+    resizeMode: 'cover',
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  close_button: {
+    color: "#412A1B",
+    fontSize: 20,
+  },
+  text: {
+    color: "#412A1B",
+    padding: 10,
+    width: 250,
+    textAlign: "center",
   },
   modal: {
-    top: -200,
+    bottom: -200,
     width: 300,
-    height: 400,
-    borderColor: '#999',
+    borderColor: '#ccc',
     borderWidth: 1,
-    borderRadius: 3,
+    borderRadius: 10,
     alignItems: 'center',
-    backgroundColor: "#fff",
+    backgroundColor: "#ECE97E",
+    overflow: "hidden",
   },
 });

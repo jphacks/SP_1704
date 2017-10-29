@@ -28,6 +28,7 @@ export default connect(state => ({state}))(TutorealView);
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    backgroundColor: "#B5CC39",
   },
   back_button: {
     backgroundColor: "#F7F7F7",

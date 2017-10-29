@@ -20,13 +20,18 @@ class Root extends React.Component {
 
     const views = [
       [["tutoreal_list"], <TutorealList key="TutorealList" />],
-      [["tutoreal_view", "task_view"], <TutorealView key="TutorealView" />],
+      [["tutoreal_view"], <TutorealView key="TutorealView" />],
       [["task_view"], <TaskView key="TaskView" />]
     ];
-
+    
+    console.log(this.props.state.application.view_state);
     return (
       <View style={styles.root}>
-        {views.filter(x => x[0].includes(this.props.state.application.view_state)).map(x => x[1])}
+        <View style={styles.root}>
+          {this.props.state.application.view_state === "tutoreal_list" ? <TutorealList /> : null}
+          {this.props.state.application.view_state === "tutoreal_view" || this.props.state.application.view_state === "task_view" ? <TutorealView /> : null}
+        </View>
+        {this.props.state.application.view_state === "task_view" ? <TaskView /> : null}
       </View>
     );
   }
@@ -37,9 +42,6 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     paddingTop: 20,
-  },
-  state: {
-    marginTop: 100,
   },
   ibeacon_emitter: {
     flex: 1,
