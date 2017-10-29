@@ -2,8 +2,7 @@ import boundActionCreator from '../ui/boundActionCreator';
 import * as types from '../application/types';
 
 const fetch_tutorials = beacon => {
-  fetch(`http://104.154.184.10/api/v1/tutorials/?major=${beacon.major}&minor=${beacon.minor}`).then(res => res.json()).then(tutoreals => tutoreals[0]).then(tutoreal => {
-    tutoreal.beacon = beacon;
+  fetch(`http://104.154.184.10/api/v1/detailed_tutorial/?major=${beacon.major}&minor=${beacon.minor}`).then(res => res.json()).then(tutoreal => {
     boundActionCreator(types.ADD_TUTOREAL, {tutoreal});
   });
 };

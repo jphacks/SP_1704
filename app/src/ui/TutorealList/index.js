@@ -29,7 +29,7 @@ class TutorealList extends React.Component {
               }}>
                 <Image
                   style={styles.image}
-                  source={{uri: tutoreal.image_path}}
+                  source={{uri: this.props.state.infrastructure.api_server + tutoreal.image_path}}
                 />
                 <Text style={styles.name}>{tutoreal.name}</Text>
               </TouchableOpacity>

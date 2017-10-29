@@ -9,6 +9,14 @@ boundActionCreator(infrastructure_types.SET_BEACONS, {beacons: [{
   major: 1,
   minor: 1,
 }]});
+boundActionCreator(infrastructure_types.SET_BEACONS, {beacons: [{
+  major: 4,
+  minor: 4,
+}]});
+boundActionCreator(infrastructure_types.SET_BEACONS, {beacons: [{
+  major: 3,
+  minor: 3,
+}]});
 
 import TutorealList from './TutorealList/index';
 import TutorealView from './TutorealView/index';

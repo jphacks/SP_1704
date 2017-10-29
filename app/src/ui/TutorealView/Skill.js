@@ -16,7 +16,7 @@ class Skill extends React.Component {
           <Text style={styles.task__num}>{("0" + (i + 1)).slice( -2 )}</Text>
           <Image
             style={{width: 100, height: 100, resizeMode: 'cover', borderRadius: 10}}
-            source={{uri: task.image_path}}
+            source={{uri: this.props.state.infrastructure.api_server + task.image_path}}
           />
         </TouchableOpacity>
       </View>

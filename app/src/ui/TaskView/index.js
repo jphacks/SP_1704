@@ -24,7 +24,7 @@ class Root extends React.Component {
             </View>
             <Image
               style={styles.image}
-              source={{uri: active_task.image_path}}
+              source={{uri: this.props.state.infrastructure.api_server + active_task.image_path}}
             />
           </View>
         </TouchableOpacity>

@@ -20,7 +20,7 @@ const reducers = {
   },
   [types.ADD_TUTOREAL](old_state, action){
     let state = deepAssign({}, old_state);
-    state.tutoreals = [...state.tutoreals, action.tutoreal];
+    state.tutoreals.push(action.tutoreal);
     return state;
   },
 };
