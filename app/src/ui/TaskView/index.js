@@ -26,6 +26,7 @@ class Root extends React.Component {
               style={styles.image}
               source={{uri: this.props.state.infrastructure.api_server + active_task.image_path}}
             />
+            <Text style={styles.description}>{active_task.description}</Text>
           </View>
         </TouchableOpacity>
       );
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
   image: {
     width: 300,
     height: 150,
-    resizeMode: 'cover',
+    resizeMode: 'contain',
   },
   header: {
     flexDirection: "row",
@@ -57,6 +58,10 @@ const styles = StyleSheet.create({
   close_button: {
     color: "#412A1B",
     fontSize: 20,
+  },
+  description: {
+    padding: 10,
+    color: "#412A1B",
   },
   text: {
     color: "#412A1B",
