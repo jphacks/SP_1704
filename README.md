@@ -1,6 +1,6 @@
 # TutoReal(チュートリアル)
 
-[![Product Name](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)]https://youtu.be/dtlhdI4MGFo)
+[![Product Name](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://youtu.be/dtlhdI4MGFo)
 
 ## 製品概要
 ### Tutorial x Tech
