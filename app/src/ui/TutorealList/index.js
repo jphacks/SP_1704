@@ -23,7 +23,7 @@ class TutorealList extends React.Component {
         <View style={styles.tutorealList}>
           {this.props.state.application.tutoreals.map((tutoreal, i) => {
             return (
-              <TouchableOpacity key={tutoreal.name} style={styles.card} onPress={() => {
+              <TouchableOpacity key={Math.random()} style={styles.card} onPress={() => {
                 boundActionCreator(types.SET_VIEW_STATE, {view_state: "tutoreal_view"});
                 boundActionCreator(types.SET_ACTIVE_TUTOREAL_INDEX, {index: i});
               }}>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: rect.width / 3.2,
-    height: rect.width / 3.4, 
+    height: rect.width / 3.4,
     resizeMode: 'cover'
   },
   card: {

@@ -42,10 +42,10 @@
          uuid
        )
        .then(
-         () => console.log('Beacons ranging started succesfully')
+         //() => console.log('Beacons ranging started succesfully')
        )
        .catch(
-         error => console.log(`Beacons ranging not started, error: ${error}`)
+         //error => console.log(`Beacons ranging not started, error: ${error}`)
        );
    }
 

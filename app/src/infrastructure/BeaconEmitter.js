@@ -83,19 +83,7 @@ class BeaconEmitter extends Component {
   render() {
     const { bluetoothState, dataSource } =  this.state;
     return (
-      <View style={styles.container}>
-        <Text style={styles.btleConnectionStatus}>
-          Bluetooth connection status: { bluetoothState ? bluetoothState  : 'NA' }
-        </Text>
-        <Text style={styles.headline}>
-          All beacons in the area
-        </Text>
-        <ListView
-          dataSource={ dataSource }
-          enableEmptySections={ true }
-          renderRow={this.renderRow}
-        />
-      </View>
+      null
     );
   }
 

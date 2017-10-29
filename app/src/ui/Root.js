@@ -4,19 +4,6 @@ import { StyleSheet, Text, View, Button, DeviceEventEmitter } from 'react-native
 import boundActionCreator from './boundActionCreator';
 import * as types from '../application/types';
 import BeaconEmitter from '../infrastructure/BeaconEmitter';
-import * as infrastructure_types from '../infrastructure/types';
-boundActionCreator(infrastructure_types.SET_BEACONS, {beacons: [{
-  major: 1,
-  minor: 1,
-}]});
-boundActionCreator(infrastructure_types.SET_BEACONS, {beacons: [{
-  major: 4,
-  minor: 4,
-}]});
-boundActionCreator(infrastructure_types.SET_BEACONS, {beacons: [{
-  major: 3,
-  minor: 3,
-}]});
 
 import TutorealList from './TutorealList/index';
 import TutorealView from './TutorealView/index';
@@ -31,10 +18,11 @@ class Root extends React.Component {
       [["tutoreal_view"], <TutorealView key="TutorealView" />],
       [["task_view"], <TaskView key="TaskView" />]
     ];
-    
-    console.log(this.props.state.application.view_state);
+
+    // console.log(this.props.state.application.view_state);
     return (
       <View style={styles.root}>
+        <BeaconEmitter />
         <View style={styles.root}>
           {this.props.state.application.view_state === "tutoreal_list" ? <TutorealList /> : null}
           {this.props.state.application.view_state === "tutoreal_view" || this.props.state.application.view_state === "task_view" ? <TutorealView /> : null}
