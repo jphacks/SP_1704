@@ -49,6 +49,8 @@
 今回用いた、スポンサーから提供されたAPIやデータは無い。
 
 #### フレームワーク・ライブラリ・モジュール
+* サーバー開発のフレームワークには [Django](https://www.djangoproject.com/) & [Django REST framework](http://www.django-rest-framework.org/) を用いた。
+  * サーバー側の仕様はしごく単純であったので、Django REST framework を用いてREST APIと簡略化のためのエンドポイントを合わせて2~3時間程度で実装できた。
 * アプリはReact Native + Reduxを用いて開発した。
   * 元々Webの技術スタックがあり、高速に開発が可能であると考えた。
 * BLE Beaconの検知をするために、react-native-ble-managerという外部のモジュールを用いた。
